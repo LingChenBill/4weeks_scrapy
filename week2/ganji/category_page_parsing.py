@@ -74,5 +74,5 @@ def get_links_from(channel, pages, who_sells='o'):
             get_item_info(item_link)
 
 
-get_links_from('http://bj.ganji.com/ershoubijibendiannao/_macbook+pro/', 3)
+# get_links_from('http://bj.ganji.com/ershoubijibendiannao/_macbook+pro/', 3)
 # get_item_info('http://bj.ganji.com/ershoubijibendiannao/37712803847193x.htm')

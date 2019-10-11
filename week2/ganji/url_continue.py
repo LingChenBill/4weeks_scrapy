@@ -6,7 +6,9 @@
 # 查看python 库地址
 # import sys
 # print(sys.path)
-from category_page_parsing import url_list, item_info
+from multiprocessing import Pool
+from category_extract import category_urls
+from category_page_parsing import get_links_from,url_list, item_info
 
 db_urls = [item['url'] for item in url_list.find()]
 index_urls = [item['url'] for item in item_info.find()]
@@ -16,3 +18,14 @@ y = set(index_urls)
 print(y)
 url_continue = x - y
 print(url_continue)
+
+
+def get_all_links_from(channel):
+    for num in range(1, 3):
+        get_links_from(channel, num)
+
+
+if __name__ == '__main__':
+    # 开启多进程
+    pool = Pool(processes=4)
+    pool.map(get_all_links_from, category_urls.split())

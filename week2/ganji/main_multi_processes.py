@@ -9,7 +9,7 @@ from category_page_parsing import get_links_from
 
 
 def get_all_links_from(channel):
-    for num in range(1, 10):
+    for num in range(1, 3):
         get_links_from(channel, num)
 
 
@@ -17,3 +17,6 @@ if __name__ == '__main__':
     # 开启多进程
     pool = Pool(processes=4)
     pool.map(get_all_links_from, category_urls.split())
+    pool.close()
+    pool.join()
+
